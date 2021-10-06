@@ -51,11 +51,6 @@ app.use(hpp());
 winston.add(new winston.transports.File({ filename: 'logfile.log', timestamp: true }));
 
 // Define Routes
-app.get('/', (req, res, next) => {
-  // res.send("Hello World!");
-  next(new ErrorResponse('Test', 400));
-});
-
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/offices', officesRoutes);
