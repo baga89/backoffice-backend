@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
   register,
   login,
+  logout,
   getMe,
   updateUser,
   updatePassword,
@@ -21,6 +22,11 @@ router.post('/register', register);
 // @route     POST /api/auth/login
 // @access    Public
 router.post('/login', login);
+
+// @desc      Log user out / clear cookie
+// @route     GET /api/auth/logout
+// @access    Public
+router.get('/logout', logout);
 
 // @desc      Get current logged in user
 // @route     GET /api/auth/me

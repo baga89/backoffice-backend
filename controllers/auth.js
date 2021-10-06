@@ -37,6 +37,19 @@ export const login = asyncHandler(async (req, res, next) => {
   sendTokenResponse(user, 200, res);
 });
 
+// Logout user
+export const logout = asyncHandler(async (req, res, next) => {
+  res.cookie('token', 'none', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
+});
+
 // Get current logged user
 export const getMe = asyncHandler(async (req, res, next) => {
   // user is already available in req due to the protect middleware
