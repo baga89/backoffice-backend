@@ -44,10 +44,7 @@ export const logout = asyncHandler(async (req, res, next) => {
     httpOnly: true,
   });
 
-  res.status(200).json({
-    success: true,
-    data: {},
-  });
+  res.status(200).json({});
 });
 
 // Get current logged user
@@ -55,10 +52,7 @@ export const getMe = asyncHandler(async (req, res, next) => {
   // user is already available in req due to the protect middleware
   const user = req.user;
 
-  res.status(200).json({
-    success: true,
-    data: user,
-  });
+  res.status(200).json(user);
 });
 
 // Update password
@@ -89,10 +83,7 @@ export const updateUser = asyncHandler(async (req, res, next) => {
     }
   );
 
-  res.status(200).json({
-    success: true,
-    data: user,
-  });
+  res.status(200).json(user);
 });
 
 // Forgot password
@@ -120,7 +111,7 @@ export const forgotPassword = asyncHandler(async (req, res, next) => {
       message,
     });
 
-    res.status(200).json({ success: true, data: 'Email poslan' });
+    res.status(200).json('Email poslan');
   } catch (err) {
     console.log(err);
     user.resetPasswordToken = undefined;
@@ -169,8 +160,5 @@ const sendTokenResponse = (user, statusCode, res) => {
     options.secure = true;
   }
 
-  res.status(statusCode).cookie('token', token, options).json({
-    success: true,
-    token,
-  });
+  res.status(statusCode).cookie('token', token, options).json(token);
 };

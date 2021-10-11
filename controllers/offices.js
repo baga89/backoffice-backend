@@ -8,10 +8,7 @@ export const getOffices = asyncHandler(async (req, res) => {
 
   if (!offices) return next(new ErrorResponse('Trenutno nema nijedne poslovnice', 400));
 
-  res.status(200).json({
-    succes: true,
-    data: offices,
-  });
+  res.status(200).json(offices);
 });
 
 // Get office
@@ -20,10 +17,7 @@ export const getOffice = asyncHandler(async (req, res) => {
 
   if (!office) return next(new ErrorResponse('Poslovnica sa zadanim ID-em nije pronađena', 404));
 
-  res.status(200).json({
-    success: true,
-    data: office,
-  });
+  res.status(200).json(office);
 });
 
 // Create office
@@ -48,10 +42,7 @@ export const createOffice = async (req, res, next) => {
 
   await office.save();
 
-  res.status(201).json({
-    success: true,
-    data: office,
-  });
+  res.status(201).json(office);
 };
 
 // Update officee
@@ -69,7 +60,7 @@ export const updateOffice = asyncHandler(async (req, res, next) => {
     runValidators: true,
   });
 
-  res.status(200).json({ success: true, data: office });
+  res.status(200).json(office);
 });
 
 // Delete office
@@ -81,5 +72,5 @@ export const deleteOffice = asyncHandler(async (req, res, next) => {
 
   office = await Office.findByIdAndDelete(id);
 
-  res.status(200).json({ success: true, data: office });
+  res.status(200).json(office);
 });

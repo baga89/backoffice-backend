@@ -33,9 +33,6 @@ export const errorHandler = (err, req, res, next) => {
     error = new ErrorResponse(message, 400);
   }
 
-  res.status(error.statusCode || 500).json({
-    success: false,
-    error: error.message || 'Greška na serveru',
-  });
+  res.status(error.statusCode || 500).json(error.message || 'Greška na serveru');
 };
 // https://expressjs.com/en/guide/error-handling.html
