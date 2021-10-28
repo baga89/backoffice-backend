@@ -62,7 +62,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`App is running on port ${PORT}`);
+  console.log(`App is running on port ${PORT} and in ${app.settings.env} environment`);
 });
 
 // Handle unhandled promise rejections
