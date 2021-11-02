@@ -27,10 +27,15 @@ export const createUser = asyncHandler(async (req, res, next) => {
 
 // Update user
 export const updateUser = asyncHandler(async (req, res, next) => {
-  const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const user = await User.findById(req.params.id).select('+password');
+  const { firstName, lastName, email, password } = req.body;
+
+  user.firstName = firstName;
+  user.lastName = lastName;
+  user.email = email;
+  user.password = password;
+
+  await user.save();
 
   res.status(200).json(user);
 });

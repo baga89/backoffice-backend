@@ -66,6 +66,13 @@ UserSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
+// Remove password from res.json(user)
+UserSchema.methods.toJSON = function () {
+  let obj = this.toObject();
+  delete obj.password;
+  return obj;
+};
+
 // Sign JWT and return
 UserSchema.methods.getSignedJwtToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {

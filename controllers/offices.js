@@ -52,7 +52,7 @@ export const updateOffice = asyncHandler(async (req, res, next) => {
 
   if (!office) return next(new ErrorResponse(`Poslovnica sa ID-em ${id} nije pronađena`, 404));
 
-  // Add user to req,body
+  // Add user to req.body
   req.body.user = req.user.id;
 
   office = await Office.findByIdAndUpdate(id, req.body, {
