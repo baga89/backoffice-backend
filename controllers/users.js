@@ -33,7 +33,7 @@ export const updateUser = asyncHandler(async (req, res, next) => {
   user.firstName = firstName;
   user.lastName = lastName;
   user.email = email;
-  user.password = password;
+  if (password) user.password = password;
 
   await user.save();
 
