@@ -56,7 +56,7 @@ const UserSchema = new Schema(
   }
 );
 
-// Encrypt password using bcrypt
+// Encrypt password using bcrypt before save
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     next();
@@ -64,6 +64,16 @@ UserSchema.pre('save', async function (next) {
 
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
+});
+
+// Encrypt password using bcrypt before update
+UserSchema.pre('findOneAndUpdate', async function (next) {
+  if (!this._update.password) {
+    next();
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  this._update.password = await bcrypt.hash(this._update.password, salt);
 });
 
 // Remove password from res.json(user)
