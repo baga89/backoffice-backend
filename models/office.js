@@ -55,7 +55,7 @@ const OfficeSchema = new Schema(
     applicationHRT: Boolean,
     stamp: Boolean,
     obligationsFrom: Date,
-    price: String,
+    price: Number,
     currency: String,
     remark: String,
     manager: String,
