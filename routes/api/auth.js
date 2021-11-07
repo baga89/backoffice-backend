@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {
-  register,
+  // register,
   login,
   logout,
   getMe,
@@ -16,7 +16,7 @@ const router = Router();
 // @desc      Register user
 // @route     POST /api/auth/register
 // @access    Public
-router.post('/register', register);
+// router.post('/register', register);
 
 // @desc      Login user
 // @route     POST /api/auth/login

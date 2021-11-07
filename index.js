@@ -6,7 +6,6 @@ import officesRoutes from './routes/api/offices.js';
 import authRoute from './routes/api/auth.js';
 import usersRoute from './routes/api/users.js';
 import { errorHandler } from './middleware/error.js';
-import { ErrorResponse } from './utils/errorResponse.js';
 import winston from 'winston';
 import cookieParser from 'cookie-parser';
 import mongoSanitize from 'express-mongo-sanitize';

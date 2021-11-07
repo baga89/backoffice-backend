@@ -5,24 +5,24 @@ import { sendEmail } from '../utils/sendEmail.js';
 import crypto from 'crypto';
 
 // Register user
-export const register = asyncHandler(async (req, res, next) => {
-  const { firstName, lastName, email, password, role } = req.body;
+// export const register = asyncHandler(async (req, res, next) => {
+//   const { firstName, lastName, email, password, role } = req.body;
 
-  let user = await User.findOne({ email: email });
-  if (user) return next(new ErrorResponse('Korisnik je već registriran!', 400));
+//   let user = await User.findOne({ email: email });
+//   if (user) return next(new ErrorResponse('Korisnik je već registriran!', 400));
 
-  user = new User({
-    firstName,
-    lastName,
-    email,
-    password,
-    role,
-  });
+//   user = new User({
+//     firstName,
+//     lastName,
+//     email,
+//     password,
+//     role,
+//   });
 
-  await user.save();
+//   await user.save();
 
-  sendTokenResponse(user, 200, res);
-});
+//   sendTokenResponse(user, 200, res);
+// });
 
 // Login user
 export const login = asyncHandler(async (req, res, next) => {
