@@ -9,15 +9,12 @@ const BettingMachineSchema = new Schema(
       unique: true,
       required: true,
     },
-    decisionMonth: Date,
-    decisionClass: String,
     locationTag: {
       type: String,
       unique: true,
       required: true,
     },
-    spaceName: String,
-    city: {
+    place: {
       type: String,
       required: true,
     },
@@ -25,8 +22,11 @@ const BettingMachineSchema = new Schema(
       type: String,
       required: true,
     },
+    spaceName: String,
     caffeBar: String,
     owner: String,
+    decisionMonth: Date,
+    decisionClass: String,
     contract: Boolean,
     electricCertificate: Boolean,
     statement200m: Boolean,
@@ -45,7 +45,6 @@ const BettingMachineSchema = new Schema(
     rent: Number,
     lockdown: String,
     contactPerson: String,
-    contactPersonPhone: String,
     obligationsFrom: Date,
     price: Number,
     currency: String,
@@ -54,6 +53,11 @@ const BettingMachineSchema = new Schema(
     dateOfAgreement: Date,
     agreementPerson: String,
     fee: Boolean,
+    user: {
+      type: Schema.ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   {
     timestamps: {

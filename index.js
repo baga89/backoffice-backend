@@ -3,6 +3,7 @@ import './config/env.js'; // Keep this at the top
 import { connectDB } from './config/db.js';
 import cors from 'cors';
 import officesRoutes from './routes/api/offices.js';
+import bettingMachinesRoutes from './routes/api/bettingmachines.js';
 import authRoute from './routes/api/auth.js';
 import usersRoute from './routes/api/users.js';
 import { errorHandler } from './middleware/error.js';
@@ -53,6 +54,7 @@ winston.add(new winston.transports.File({ filename: 'logfile.log', timestamp: tr
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/offices', officesRoutes);
+app.use('/api/betting-machines', bettingMachinesRoutes);
 
 // Custom Error Handler
 // Always define this middleware as last

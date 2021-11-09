@@ -3,7 +3,7 @@ import { ErrorResponse } from '../utils/errorResponse.js';
 import { asyncHandler } from '../middleware/async.js';
 
 // Gett offices
-export const getOffices = asyncHandler(async (req, res) => {
+export const getOffices = asyncHandler(async (req, res, next) => {
   const offices = await Office.find({});
 
   if (!offices) return next(new ErrorResponse('Trenutno nema nijedne poslovnice', 400));
@@ -12,7 +12,7 @@ export const getOffices = asyncHandler(async (req, res) => {
 });
 
 // Get office
-export const getOffice = asyncHandler(async (req, res) => {
+export const getOffice = asyncHandler(async (req, res, next) => {
   const office = await Office.findById(req.params.id);
 
   if (!office) return next(new ErrorResponse('Poslovnica sa zadanim ID-em nije pronađena', 404));

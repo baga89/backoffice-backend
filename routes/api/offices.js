@@ -19,8 +19,8 @@ router.get('/:id', getOffice);
 // @access   Private
 router.post('/', protect, createOffice);
 
-// @desc     Update existing office
 // @route    PUT /api/offices/:id
+// @desc     Update existing office
 // @access   Private
 router.put('/:id', protect, updateOffice);
 
