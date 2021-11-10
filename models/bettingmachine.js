@@ -41,7 +41,7 @@ const BettingMachineSchema = new Schema(
     tcomLine: Boolean,
     informatics: Boolean,
     maxTV: Boolean,
-    feeWithVat: Number,
+    feeWithVat: String,
     rent: Number,
     lockdown: String,
     contactPerson: String,
