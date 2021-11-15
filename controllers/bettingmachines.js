@@ -51,7 +51,7 @@ export const updateBettingMachine = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   let bettingMachine = await BettingMachine.findById(id);
 
-  if (!bettingMachine) return next(new ErrorResponse(`Poslovnica sa ID-em ${id} nije pronađena`, 404));
+  if (!bettingMachine) return next(new ErrorResponse(`Kladomat sa ID-em ${id} nije pronađen`, 404));
 
   // Add user to req.body
   req.body.user = req.user.id;
