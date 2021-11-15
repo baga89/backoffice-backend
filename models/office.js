@@ -46,6 +46,7 @@ const OfficeSchema = new Schema(
     nickySecurity: Boolean,
     maxTV: Boolean,
     openedAt: Date,
+    closedAt: Date,
     applicationCommercialCourt: Boolean,
     applicationStatistics: Boolean,
     documentationNoky: Boolean,

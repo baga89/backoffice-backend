@@ -37,6 +37,7 @@ const BettingMachineSchema = new Schema(
     taxDecision: Boolean,
     insuranceApplication: Boolean,
     openedAt: Date,
+    closedAt: Date,
     advertisement: Boolean,
     tcomLine: Boolean,
     informatics: Boolean,
