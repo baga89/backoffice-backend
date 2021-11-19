@@ -35,8 +35,9 @@ export const createOffice = async (req, res, next) => {
       return next(new ErrorResponse(`Poslovnica sa lokacijskom oznakom ${locationTag} već postoji!`, 400));
   }
 
-  // Add user to req,body
+  // Add user to req.body
   req.body.user = req.user.id;
+  req.body.userFullName = req.user.firstName + ' ' + req.user.lastName;
 
   office = new Office(req.body);
 
@@ -54,6 +55,7 @@ export const updateOffice = asyncHandler(async (req, res, next) => {
 
   // Add user to req.body
   req.body.user = req.user.id;
+  req.body.userFullName = req.user.firstName + ' ' + req.user.lastName;
 
   office = await Office.findByIdAndUpdate(id, req.body, {
     new: true,

@@ -38,6 +38,7 @@ export const createBettingMachine = async (req, res, next) => {
 
   // Add user to req,body
   req.body.user = req.user.id;
+  req.body.userFullName = req.user.firstName + ' ' + req.user.lastName;
 
   bettingMachine = new BettingMachine(req.body);
 
@@ -55,6 +56,7 @@ export const updateBettingMachine = asyncHandler(async (req, res, next) => {
 
   // Add user to req.body
   req.body.user = req.user.id;
+  req.body.userFullName = req.user.firstName + ' ' + req.user.lastName;
 
   bettingMachine = await BettingMachine.findByIdAndUpdate(id, req.body, {
     new: true,

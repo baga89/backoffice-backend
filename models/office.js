@@ -27,6 +27,7 @@ const OfficeSchema = new Schema(
       ref: 'User',
       required: true,
     },
+    userFullName: String,
     owner: String,
     contract: Boolean,
     electricCertificate: Boolean,
