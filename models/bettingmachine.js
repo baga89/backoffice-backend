@@ -59,6 +59,7 @@ const BettingMachineSchema = new Schema(
       ref: 'User',
       required: true,
     },
+    userFullName: String,
   },
   {
     timestamps: {
