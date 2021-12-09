@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUsers, getUser, createUser, updateUser, deleteUser } from '../../controllers/users.js';
+import { getUsers, getUsersCount, getUser, createUser, updateUser, deleteUser } from '../../controllers/users.js';
 import { protect, authorize } from '../../middleware/auth.js';
 
 const router = Router();
@@ -10,6 +10,11 @@ router.use(authorize('admin'));
 // @route     GET /api/users
 // @access    Private/Admin
 router.get('/', getUsers);
+
+// @desc     Get users count
+// @route    GET /api/users/count
+// @access   Public
+router.get('/count', getUsersCount);
 
 // @desc      Get single user
 // @route     GET /api/users/:id

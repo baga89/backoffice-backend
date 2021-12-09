@@ -1,5 +1,12 @@
 import { Router } from 'express';
-import { getOffices, getOffice, createOffice, updateOffice, deleteOffice } from '../../controllers/offices.js';
+import {
+  getOffices,
+  getOfficesCount,
+  getOffice,
+  createOffice,
+  updateOffice,
+  deleteOffice,
+} from '../../controllers/offices.js';
 import { protect } from '../../middleware/auth.js';
 
 const router = Router();
@@ -8,6 +15,11 @@ const router = Router();
 // @route    GET /api/offices
 // @access   Public
 router.get('/', getOffices);
+
+// @desc     Get offices count
+// @route    GET /api/offices/count
+// @access   Public
+router.get('/count', getOfficesCount);
 
 // @desc     Get single office
 // @route    GET /api/offices/:id

@@ -11,6 +11,15 @@ export const getOffices = asyncHandler(async (req, res, next) => {
   res.status(200).json(offices);
 });
 
+// Gett offices count
+export const getOfficesCount = asyncHandler(async (req, res, next) => {
+  const officesCount = await Office.countDocuments();
+
+  if (!officesCount) return next(new ErrorResponse('Trenutno nema nijedne poslovnice', 400));
+
+  res.status(200).json(officesCount);
+});
+
 // Get office
 export const getOffice = asyncHandler(async (req, res, next) => {
   const office = await Office.findById(req.params.id);

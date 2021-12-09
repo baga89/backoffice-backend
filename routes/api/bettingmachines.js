@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import {
   getBettingMachines,
+  getBettingMachinesCount,
   getBettingMachine,
   createBettingMachine,
   updateBettingMachine,
@@ -14,6 +15,11 @@ const router = Router();
 // @route    GET /api/betting-machines
 // @access   Public
 router.get('/', getBettingMachines);
+
+// @desc     Get betting machines count
+// @route    GET /api/betting-machines/count
+// @access   Public
+router.get('/count', getBettingMachinesCount);
 
 // @desc     Get single betting machine
 // @route    GET /api/betting-machines/:id
