@@ -15,8 +15,6 @@ export const getBettingMachines = asyncHandler(async (req, res, next) => {
 export const getBettingMachinesCount = asyncHandler(async (req, res, next) => {
   const bettingMachinesCount = await BettingMachine.countDocuments();
 
-  if (!bettingMachinesCount) return next(new ErrorResponse('Trenutno nema nijednog kladomata', 400));
-
   res.status(200).json(bettingMachinesCount);
 });
 

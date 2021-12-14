@@ -15,8 +15,6 @@ export const getUsers = asyncHandler(async (req, res, next) => {
 export const getUsersCount = asyncHandler(async (req, res, next) => {
   const usersCount = await User.countDocuments();
 
-  if (!usersCount) return next(new ErrorResponse('Trenutno nema nijednog korisnika', 400));
-
   res.status(200).json(usersCount);
 });
 
